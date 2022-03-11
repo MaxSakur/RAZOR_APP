@@ -1,0 +1,18 @@
+.loginContainer {
+  display: flex;
+  width: auto;
+  height: auto;
+  position: absolute;
+  justify-content: center;
+  align-items: flex-start;
+  left: calc(50% - 150px);
+  top: calc(50% - 150px);
+}
+.tabHeader {
+  display: flex;
+}
+
+.tabItemHeader {
+  flex: 1;
+  padding: 12px;
+}

@@ -1,0 +1,10 @@
+.navbar_container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 8px 16px;
+}
+
+.navbar_container li {
+  list-style-type: none;
+}
