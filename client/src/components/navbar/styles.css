@@ -8,3 +8,13 @@
 .navbar_container li {
   list-style-type: none;
 }
+
+.nav {
+  justify-content: space-between;
+}
+
+.user_icon {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}

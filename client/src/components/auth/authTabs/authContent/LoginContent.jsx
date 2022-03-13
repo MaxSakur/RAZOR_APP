@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { textCapitalize } from '../../../../utils/textCapitalize';
 import { useDispatch } from 'react-redux';
 
-export const LoginContent = () => {
+export const LoginContent = ({ isAuthOpenChange }) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const { t } = useTranslation();
@@ -15,6 +15,7 @@ export const LoginContent = () => {
 
   const onActionPress = () => {
     dispatch(login(email, password));
+    isAuthOpenChange(false);
   };
 
   return (

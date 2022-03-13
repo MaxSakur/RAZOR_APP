@@ -8,6 +8,7 @@ export const EN_TRANSLATION_KEYS = {
       password: 'password',
       enterPassword: 'enter password',
       loggedIn: 'log in',
+      logOut: 'log out',
     },
     registration: {
       registration: 'registration',

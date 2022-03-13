@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { setUserAC } from '../reducers/userReduces';
+import { setUserAC } from '../reducers/userReducer';
 
 const MAIN_URL = 'http://localhost:5000/api';
 
 export const registration = async (email, password) => {
   try {
-    const response = await axios.post(`${MAIN_URL}/auth/registration`, {
+    await axios.post(`${MAIN_URL}/auth/registration`, {
       email,
       password,
     });

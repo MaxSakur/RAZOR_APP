@@ -8,6 +8,7 @@ export const UA_TRANSLATION_KEYS = {
       password: 'пароль',
       enterPassword: 'введіть пароль',
       loggedIn: 'увійти',
+      logOut: 'вийти',
     },
     registration: {
       registration: 'реестрація',
