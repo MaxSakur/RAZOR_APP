@@ -5,5 +5,11 @@
 }
 
 :root {
-  --border_color: #e0dada;
+  /* Sizes */
+  --cursor_height: 50px;
+
+  /* Colors */
+  --border_accent_color: #001534;
+  --border_secondary_color: #4f8bbd;
+  --border_side_color: #1493dc;
 }
