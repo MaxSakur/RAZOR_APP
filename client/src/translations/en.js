@@ -21,5 +21,12 @@ export const EN_TRANSLATION_KEYS = {
       passwordRules:
         'Password should be bigger than 3 and less then 12 symbols',
     },
+    about: {
+      about: 'about',
+    },
+    options: {
+      options: 'options',
+    },
+    back: 'Back',
   },
 };

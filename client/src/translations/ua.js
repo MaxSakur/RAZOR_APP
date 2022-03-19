@@ -21,5 +21,12 @@ export const UA_TRANSLATION_KEYS = {
       passwordRules:
         'Пароль повинен бути більший за 3 та меньший за 12 символів',
     },
+    about: {
+      about: 'Інформація',
+    },
+    options: {
+      options: 'налаштунки',
+    },
+    back: 'назад',
   },
 };
