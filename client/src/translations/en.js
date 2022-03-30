@@ -26,6 +26,10 @@ export const EN_TRANSLATION_KEYS = {
     },
     options: {
       options: 'options',
+      disableSound: 'disable sound',
+    },
+    donate: {
+      donate: 'donate',
     },
     back: 'Back',
   },

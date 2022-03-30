@@ -1,11 +1,10 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { authorize } from './actions/userAuth';
 import { BrowserRouter } from 'react-router-dom';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import { Route, Routes } from 'react-router-dom';
-import { HomeScreen, MainScreen, LoginScreen } from './screens';
+import { useRoutes } from './screens/routes';
 import './styles.css';
 
 function App() {
@@ -16,16 +15,12 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // TODO: Add theme provider
+  // https://styled-components.com/docs/advanced
+
   return (
     <BrowserRouter>
-      <DndProvider backend={HTML5Backend}>
-        <Routes>
-          <Route path="/" exact element={<LoginScreen />} />
-          <Route path="/home" element={<HomeScreen />} />
-          <Route path="/main" element={<MainScreen />} />
-          <Route path="/login" element={<LoginScreen />} />
-        </Routes>
-      </DndProvider>
+      <DndProvider backend={HTML5Backend}>{useRoutes()}</DndProvider>
     </BrowserRouter>
   );
 }

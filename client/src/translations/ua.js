@@ -26,6 +26,10 @@ export const UA_TRANSLATION_KEYS = {
     },
     options: {
       options: 'налаштунки',
+      disableSound: 'відключити звук',
+    },
+    donate: {
+      donate: 'donate',
     },
     back: 'назад',
   },

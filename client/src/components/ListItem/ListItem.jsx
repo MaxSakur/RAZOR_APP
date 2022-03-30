@@ -1,15 +1,18 @@
 import React from 'react';
 import { playCursorSound } from '../../utils/moveCursorSound';
-import './styles.css';
 
 export const ListItem = ({ children, onClick, onAnimationEnd }) => {
   const onMouseEnter = (e) => {
     playCursorSound();
-    e.target.className = 'animated_menu_item active';
+    if (e.target.className.includes('animated_menu_item')) {
+      e.target.className += ' active';
+    }
   };
 
   const onMouseLeave = (e) => {
-    e.target.className = 'animated_menu_item';
+    if (e.target.className.includes('animated_menu_item active')) {
+      e.target.className = 'animated_menu_item';
+    }
   };
 
   return (

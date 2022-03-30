@@ -37,6 +37,7 @@ export const authorize = () => {
           Authorization: `Bearer ${localStorage.getItem('user_token')}`,
         },
       });
+      console.log('response =====>', response);
       dispatch(setUserAC(response.data.user));
       localStorage.setItem('user_token', response.data.token);
     } catch (e) {

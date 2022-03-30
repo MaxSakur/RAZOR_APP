@@ -1,0 +1,203 @@
+$border: 4px;
+$header_bottom_border_width: 1px;
+$lightspot_height: 20vh;
+$lightspot_dm_height: -40vh;
+
+.modal {
+  display: flex;
+  border: 2px solid #16638f;
+  align-self: center;
+  min-width: 480px;
+  height: 100%;
+  position: relative;
+  // lightspot on back stage of header
+  &_effects {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+
+    &_lightspot {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: $lightspot_dm_height;
+      z-index: 0;
+      background: radial-gradient(
+        rgba(var(--border_side_color_rgb), 0.7) 0,
+        transparent $lightspot_height
+      );
+    }
+  }
+
+  & .inner_container {
+    margin: 2px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border: $border solid rgba(var(--border_secondary_color_rgb), 0.2);
+    background-color: rgba(var(--border_accent_color_rgb), 0.5);
+
+    // HEADER
+    & .header {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: $header_bottom_border_width;
+      & p {
+        position: relative;
+        color: #fff;
+        text-shadow: 2px 2px 2px black;
+        font-size: 20px;
+        padding: 8px 0;
+        text-align: center;
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          opacity: 0.2;
+          background: to right, var(--border_accent_color) 0%,
+            var(--border_side_color) 50%, var(--border_accent_color) 100%;
+        }
+        // border-bottom under the header
+        &::after {
+          content: '';
+          height: $header_bottom_border_width;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          background: linear-gradient(
+            to right,
+            var(--border_accent_color) 0%,
+            var(--border_side_color) 50%,
+            var(--border_accent_color) 100%
+          );
+        }
+      }
+    }
+    & .body {
+      display: flex;
+      position: relative;
+      z-index: 1;
+      padding: 16px;
+      flex: 1;
+      justify-content: center;
+    }
+    & .footer {
+      position: relative;
+      margin-top: 1px;
+      min-height: 40px;
+      &::before {
+        content: '';
+        height: 1px;
+        display: block;
+        position: absolute;
+        width: 100%;
+        background: linear-gradient(
+          to right,
+          var(--border_accent_color) 0%,
+          rgba(var(--border_side_color_rgb), 0.5) 50%,
+          var(--border_accent_color) 100%
+        );
+      }
+    }
+  }
+}
+
+.corner_figure {
+  width: 4px;
+  height: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--border_side_color);
+  position: absolute;
+  & .dot {
+    width: 2px;
+    height: 2px;
+    border-radius: 100%;
+    background-color: var(--border_side_color);
+  }
+  &::after {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 3px;
+    border-radius: 100%;
+    position: absolute;
+    background-color: var(--border_side_color);
+  }
+  &::before {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 3px;
+    border-radius: 100%;
+    position: absolute;
+    background-color: var(--border_side_color);
+  }
+}
+
+.top_left {
+  @extend .corner_figure;
+  top: -5px;
+  left: -5px;
+  transform: rotate(45deg);
+  &::after {
+    bottom: -12px;
+    right: -12px;
+  }
+  &::before {
+    top: -12px;
+    right: -12px;
+  }
+}
+
+.top_right {
+  @extend .corner_figure;
+  top: -5px;
+  right: -5px;
+  transform: rotate(-45deg);
+  &::after {
+    top: -12px;
+    left: -12px;
+  }
+  &::before {
+    bottom: -12px;
+    left: -12px;
+  }
+}
+
+.bottom_left {
+  @extend .corner_figure;
+  bottom: -5px;
+  left: -5px;
+  transform: rotate(45deg);
+  &::after {
+    top: -12px;
+    left: -12px;
+  }
+  &::before {
+    right: -12px;
+    top: -12px;
+  }
+}
+
+.bottom_right {
+  @extend .corner_figure;
+  bottom: -5px;
+  right: -5px;
+  transform: rotate(45deg);
+  &::after {
+    top: -12px;
+    left: -12px;
+  }
+  &::before {
+    bottom: -12px;
+    left: -12px;
+  }
+}
