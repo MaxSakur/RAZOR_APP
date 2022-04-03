@@ -1,8 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
-import Character from './../containers/character';
-import DnD from '../containers/dnd';
 import LoginScreen from './login';
+import MainScreen from './main';
 import { LoginMenu } from './login/loginMenu/LoginMenu';
 import { TopSectionRoutes } from './login/loginRoutes';
 
@@ -15,9 +13,8 @@ export const useRoutes = (isAuthorized) => {
 
   return (
     <Routes>
-      <Route index path="/character" element={<Character />} />
-      <Route path="/dnd" element={<DnD />} />
-      <Route path="/*" element={<Navigate to="/charactr" replace />} />
+      <Route index path="/main" element={<MainScreen />} />
+      <Route path="/*" element={<Navigate to="/main" replace />} />
     </Routes>
   );
 };

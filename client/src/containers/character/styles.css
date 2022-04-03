@@ -19,10 +19,15 @@ ul.hero_model li {
   background-repeat: no-repeat;
   transition: all 1s ease;
 }
-ul.hero_model li:nth-child(6) {
+ul.hero_model li.portrait {
   height: 200px;
   background-size: cover;
   background-image: url('./../../assets/images//equipment/model.png');
+}
+.slot {
+  width: 50px;
+  height: 50px;
+  background-color: red;
 }
 .hero_model_element:hover {
   cursor: pointer;

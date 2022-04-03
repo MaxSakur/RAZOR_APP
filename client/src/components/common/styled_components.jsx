@@ -2,7 +2,6 @@ import styled, { keyframes } from 'styled-components';
 import { merge, fadeInLeft, fadeOutLeft, fadeIn } from 'react-animations';
 import { colors, constants, fonts } from './styled_theme';
 import cursor_image from './../../assets/images/cursor/FF7Cursor.png';
-import BG from './../../assets/images/screens_bg/login_screen_bg-min.jpeg';
 
 const animationShow = keyframes`${merge(fadeInLeft, fadeIn)}`;
 const animationHide = keyframes`${merge(fadeOutLeft, fadeIn)}`;
@@ -17,6 +16,19 @@ const bouncing = keyframes`
 100% {
   background-size: ${constants.cursor_height * 0.7}px
 }
+`;
+
+export const Screen = styled.div`
+  display: flex;
+  flex: 1;
+  box-sizing: border-box;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+  background-size: cover;
+  background-position: center;
+  background-image: url(${(props) => props.bg});
+  padding: ${constants.paddings.lg}px;
 `;
 
 export const Button = styled.button`
@@ -36,13 +48,27 @@ export const Button = styled.button`
 
 export const FadedContainer = styled.div`
   padding-left: ${constants.cursor_height}px;
-
   min-width: 280px;
   flex: 1;
   display: flex;
   align-items: flex-end;
   animation: 0.2s
     ${(props) => (props.type === 'in' ? animationShow : animationHide)};
+`;
+
+export const LogOutButton = styled.button`
+  width: 50px;
+  height: 50px;
+  color: ${colors.border_side_color};
+  border-radius: 100%;
+  position: fixed;
+  background: linear-gradient(
+    to right,
+    ${colors.border_accent_color} 60%,
+    transparent
+  );
+  right: 20px;
+  bottom: 20px;
 `;
 
 const Form = styled.div`
@@ -56,19 +82,6 @@ const Form = styled.div`
 export const CommonForm = ({ children }) => {
   return <Form autoComplete="on">{children}</Form>;
 };
-
-export const Container = styled.div`
-  display: flex;
-  flex: 1;
-  box-sizing: border-box;
-  height: 100vh;
-  flex-direction: column;
-  justify-content: space-between;
-  background-size: cover;
-  background-position: center;
-  background-image: url(${BG});
-  padding: ${constants.paddings.lg}px;
-`;
 
 export const BottomSection = styled.div`
   display: flex;

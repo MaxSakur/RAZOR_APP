@@ -8,17 +8,19 @@ import {
   Input,
 } from '../../../components/common/styled_components';
 import { textCapitalize } from '../../../utils/textCapitalize';
-import EnterIcon from '../../../assets/images/svg_icons/EnterIcon';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginContent = () => {
   const [email, setEmail] = React.useState('');
+  const navigate = useNavigate;
   const [password, setPassword] = React.useState('');
   const { t } = useTranslation();
   const dispatch = useDispatch();
-
   const onActionPress = () => {
-    dispatch(login(email, password));
+    dispatch(login(email, password, navigate));
   };
+
+  const isLoginButtonDisabled = email.length < 1 || password.length < 1;
 
   return (
     <CommonForm>
@@ -35,11 +37,9 @@ export const LoginContent = () => {
         placeholder={textCapitalize(t('auth.login.enterPassword'))}
         value={password}
         setValue={setPassword}
+        onKeyDown={(e) => e.key === 'Enter' && onActionPress}
       />
-      <Button
-        disabled={email.length < 1 || password.length < 1}
-        onClick={onActionPress}>
-        <EnterIcon height={18} color="#fff" />
+      <Button disabled={isLoginButtonDisabled} onClick={onActionPress}>
         <p>{t('auth.login.loggedIn')}</p>
       </Button>
     </CommonForm>

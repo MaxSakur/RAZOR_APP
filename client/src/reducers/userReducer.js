@@ -1,5 +1,5 @@
 const SET_USER = 'SET_USER';
-const CLEAR_USER = 'CLEAR_USER';
+const LOG_OUT = 'LOG_OUT';
 
 const defaultState = {
   user: null,
@@ -15,7 +15,7 @@ const userReducer = (state = defaultState, action) => {
         user: action.payload.user,
         isLogged: true,
       };
-    case CLEAR_USER:
+    case LOG_OUT:
       localStorage.clear('token');
       return {
         ...state,
@@ -29,6 +29,6 @@ const userReducer = (state = defaultState, action) => {
 };
 
 export const setUserAC = (user) => ({ type: SET_USER, payload: user });
-export const clearUserAC = () => ({ type: CLEAR_USER });
+export const logOutAC = () => ({ type: LOG_OUT });
 
 export default userReducer;

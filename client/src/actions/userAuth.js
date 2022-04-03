@@ -14,15 +14,20 @@ export const registration = async (email, password) => {
   }
 };
 
-export const login = (email, password) => {
+export const login = (email, password, navigate) => {
   return async (dispatch) => {
     try {
       const response = await axios.post(`${MAIN_URL}/auth/login`, {
         email,
         password,
       });
+
+      // Check if response fail
       dispatch(setUserAC(response.data));
+
+      console.log('response', response);
       localStorage.setItem('user_token', response.data.token);
+      navigate('main');
     } catch (error) {
       alert(error.response.data.message);
     }

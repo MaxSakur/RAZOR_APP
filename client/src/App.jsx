@@ -20,7 +20,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <DndProvider backend={HTML5Backend}>{useRoutes()}</DndProvider>
+      <DndProvider backend={HTML5Backend}>{useRoutes(token)}</DndProvider>
     </BrowserRouter>
   );
 }
