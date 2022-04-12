@@ -27,6 +27,7 @@ export const Screen = styled.div`
   justify-content: space-between;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   background-image: url(${(props) => props.bg});
   padding: ${constants.paddings.lg}px;
 `;
@@ -34,16 +35,20 @@ export const Screen = styled.div`
 export const Button = styled.button`
   display: flex;
   justify-content: flex-end;
-  background-color: transparent;
   border: none;
+  background-color: transparent;
   text-transform: capitalize;
   text-align: end;
-  color: ${(props) => (!props.disabled ? colors.white : 'grey')};
-  padding: ${constants.paddings.sm}px 0;
   gap: ${constants.paddings.sm}px;
   align-items: center;
   text-shadow: 2px 2px 2px black;
-  font-size: ${fonts.size.md}px;
+  & p {
+    padding: ${constants.paddings.sm}px ${constants.paddings.md}px;
+    color: ${(props) => (!props.disabled ? colors.white : colors.disabled)};
+    font-size: ${fonts.size.md}px;
+    background-color: ${(props) =>
+      !props.disabled ? colors.border_secondary_color : `transparent`};
+  }
 `;
 
 export const FadedContainer = styled.div`
@@ -62,6 +67,7 @@ export const LogOutButton = styled.button`
   color: ${colors.border_side_color};
   border-radius: 100%;
   position: fixed;
+  z-index: 99;
   background: linear-gradient(
     to right,
     ${colors.border_accent_color} 60%,
@@ -187,3 +193,11 @@ export const Input = (props) => {
     </InputContainer>
   );
 };
+
+export const DraggableItem = styled.div`
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  & img {
+  }
+`;

@@ -1,5 +1,6 @@
 import { useDrag } from 'react-dnd';
 import { useDrop } from 'react-dnd';
+import { DraggableItem } from './../../components/common/styled_components';
 import './styles.css';
 
 export const CharacterSlot = {
@@ -10,12 +11,12 @@ export const CharacterSlot = {
   HEAD: 'head',
   BELT: 'belt',
   RINGS: 'rings',
-  GAUNTLET: 'gauntlet',
+  GAUNTLET: 'gauntlets',
   BOOTS: 'boots',
   SHIELD: 'shield',
 };
 
-export const DragItem = function Box({ name, type }) {
+export const DragItem = function Box({ name, type, image }) {
   const [{ isDragging, isDraggedTo }, drag] = useDrag(() => ({
     type,
     item: { type },
@@ -35,9 +36,12 @@ export const DragItem = function Box({ name, type }) {
   const opacity = isDragging ? 0.4 : 1;
 
   return (
-    <li ref={drag} role="Item" style={{ opacity }}>
-      {name}
-    </li>
+    <DraggableItem ref={drag} role="Item" style={{ opacity }}>
+      <img src={image} alt="item image" />
+      <div>
+        <p>{name}</p>
+      </div>
+    </DraggableItem>
   );
 };
 

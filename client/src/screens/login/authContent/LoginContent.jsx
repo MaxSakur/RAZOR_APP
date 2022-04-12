@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { login } from '../../../actions/userAuth';
 import {
@@ -13,11 +13,15 @@ import { useNavigate } from 'react-router-dom';
 export const LoginContent = () => {
   const [email, setEmail] = React.useState('');
   const navigate = useNavigate;
+  const isCharacterRegistered = useSelector(
+    (state) => state.character.isCharacterRegistered,
+  );
   const [password, setPassword] = React.useState('');
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const onActionPress = () => {
-    dispatch(login(email, password, navigate));
+    // TODO: Add loading state
+    dispatch(login(email, password, navigate, isCharacterRegistered));
   };
 
   const isLoginButtonDisabled = email.length < 1 || password.length < 1;

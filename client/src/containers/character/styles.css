@@ -1,5 +1,6 @@
 .home {
   background-color: lightgreen;
+  display: flex;
 }
 ul.hero_model {
   display: flex;
@@ -22,7 +23,7 @@ ul.hero_model li {
 ul.hero_model li.portrait {
   height: 200px;
   background-size: cover;
-  background-image: url('./../../assets/images//equipment/model.png');
+  background-image: url('./../../assets/images/equipment/placeholders/model.png');
 }
 .slot {
   width: 50px;
@@ -37,68 +38,68 @@ ul.hero_model li.portrait {
       rgba(255, 255, 255, 0.75),
       rgba(255, 255, 255, 0.75)
     ),
-    url('./../../assets/images//equipment/helmet.svg');
+    url('./../../assets/images/equipment/placeholders/helmet.svg');
 }
 .rings {
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.75),
       rgba(255, 255, 255, 0.75)
     ),
-    url('./../../assets/images//equipment/linked-rings.svg');
+    url('./../../assets/images/equipment/placeholders/linked-rings.svg');
 }
 .breastplate {
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.75),
       rgba(255, 255, 255, 0.75)
     ),
-    url('./../../assets/images//equipment/breastplate.svg');
+    url('./../../assets/images/equipment/placeholders/breastplate.svg');
 }
 .necklace {
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.75),
       rgba(255, 255, 255, 0.75)
     ),
-    url('./../../assets/images//equipment/necklace.svg');
+    url('./../../assets/images/equipment/placeholders/necklace.svg');
 }
 .pants {
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.75),
       rgba(255, 255, 255, 0.75)
     ),
-    url('./../../assets/images//equipment/armored-pants.svg');
+    url('./../../assets/images/equipment/placeholders/armored-pants.svg');
 }
-.gauntlet {
+.gauntlets {
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.75),
       rgba(255, 255, 255, 0.75)
     ),
-    url('./../../assets/images//equipment/gauntlet.svg');
+    url('./../../assets/images/equipment/placeholders/gauntlet.svg');
 }
 .belt {
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.75),
       rgba(255, 255, 255, 0.75)
     ),
-    url('./../../assets/images//equipment/belt-armor.svg');
+    url('./../../assets/images/equipment/placeholders/belt-armor.svg');
 }
 .boots {
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.75),
       rgba(255, 255, 255, 0.75)
     ),
-    url('./../../assets/images//equipment/boots.svg');
+    url('./../../assets/images/equipment/placeholders/boots.svg');
 }
 .weapon {
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.75),
       rgba(255, 255, 255, 0.75)
     ),
-    url('./../../assets/images//equipment/stiletto.svg');
+    url('./../../assets/images/equipment/placeholders/stiletto.svg');
 }
 .shield {
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.75),
       rgba(255, 255, 255, 0.75)
     ),
-    url('./../../assets/images//equipment/round-shield.svg');
+    url('./../../assets/images/equipment/placeholders/round-shield.svg');
 }
