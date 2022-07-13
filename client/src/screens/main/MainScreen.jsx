@@ -5,7 +5,7 @@ import {
 } from '../../components/common/styled_components';
 import Character from '../../containers/character';
 import { logOutAC } from '../../reducers/userReducer';
-import BG from './../../assets/images/screens_bg/login_bg-min.jpeg';
+import BG from './../../assets/images/screens_bg/loading.jpg';
 
 export const MainScreen = () => {
   const dispatch = useDispatch();

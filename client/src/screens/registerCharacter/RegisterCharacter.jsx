@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import {
@@ -13,17 +13,18 @@ import BG from './../../assets/images/screens_bg/login_bg-min.jpeg';
 export const RegisterCharacter = () => {
   const dispatch = useDispatch();
   // const [questionIndex, chooseQuestionIndex] = useState(0);
-  const t = useTranslation();
+  const { t } = useTranslation();
   const onActionPress = () => {
     dispatch(logOutAC());
   };
   return (
     <Screen bg={BG}>
       <ul>
+        <p>ВАМ НУЖНО СОЗДАТЬ ПЕРСОНАЖА</p>
         {questions.map((item, i) => {
           return (
-            <li>
-              <label for={item.id}>{item.question}</label>
+            <li key={i}>
+              <label>{item.question}</label>
               <select
                 name={item.id}
                 key={item + i}

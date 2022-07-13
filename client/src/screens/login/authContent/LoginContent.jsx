@@ -21,7 +21,7 @@ export const LoginContent = () => {
   const dispatch = useDispatch();
   const onActionPress = () => {
     // TODO: Add loading state
-    dispatch(login(email, password, navigate, isCharacterRegistered));
+    dispatch(login(email, password));
   };
 
   const isLoginButtonDisabled = email.length < 1 || password.length < 1;

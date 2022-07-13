@@ -96,7 +96,7 @@ export const BottomSection = styled.div`
 
 export const TopSection = styled.div`
   display: flex;
-  flex: 1;
+  flex: 3;
   justify-content: center;
 `;
 

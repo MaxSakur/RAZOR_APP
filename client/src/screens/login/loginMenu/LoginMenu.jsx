@@ -27,7 +27,7 @@ export const LoginMenu = () => {
           playCursorSound('click');
 
           if (navToScreen) {
-            navigate(`${navToScreen}`);
+            navigate(`/${navToScreen}`);
           }
           if (navToTab) {
             setCurrentActiveElement(navToTab);
@@ -37,12 +37,14 @@ export const LoginMenu = () => {
       };
 
       return (
-        <ListItem
-          isFading={isFading}
-          onAnimationEnd={() => setFading(false)}
-          onClick={onClick}>
-          {component ? component : <p>{textCapitalize(t(text))}</p>}
-        </ListItem>
+        <div className="">
+          <ListItem
+            isFading={isFading}
+            onAnimationEnd={() => setFading(false)}
+            onClick={onClick}>
+            {component ? component : <p>{textCapitalize(t(text))}</p>}
+          </ListItem>
+        </div>
       );
     },
   );
@@ -58,7 +60,6 @@ export const LoginMenu = () => {
               key={index}
               text={item.text}
               event={item.event}
-              navToScreen={item?.navToScreen}
               navToTab={item?.navToTab}
               component={item.component}
             />

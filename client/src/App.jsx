@@ -13,15 +13,15 @@ function App() {
   const isLogged = useSelector((store) => store.user.isLogged);
   useEffect(() => {
     token && dispatch(authorize());
-    console.log(isLogged, token);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isLogged, token]);
 
   // TODO: Add theme provider
   // https://styled-components.com/docs/advanced
 
   return (
     <BrowserRouter>
+      {/* TODO: Move DNDProvider inside screen where it really needed */}
       <DndProvider backend={HTML5Backend}>{useRoutes(isLogged)}</DndProvider>
     </BrowserRouter>
   );
