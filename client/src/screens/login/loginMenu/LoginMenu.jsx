@@ -1,71 +1,73 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import ListItem from '../../../components/listItem';
-import { playCursorSound } from '../../../utils/moveCursorSound';
-import { loginMenuData } from './LoginMenuData';
+import * as React from 'react';
+import { Outlet, useRoutes, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import CommonModal from '../../../components/commonModal';
+import ListItem from '../../../components/listItem';
+import { LoginContent } from './../authContent/LoginContent';
 import { textCapitalize } from '../../../utils/textCapitalize';
-import {
-  FadedContainer,
-  AnimatedDiv,
-} from '../../../components/common/styled_components';
+import { RegistrationContent } from './../authContent/RegistrationContent';
+import { AnimatedDiv } from '../../../components/common/styled_components';
 
-export const LoginMenu = () => {
-  const [currentActiveElement, setCurrentActiveElement] =
-    React.useState('initial');
-  const activeTab = loginMenuData(currentActiveElement);
-  const [isFading, setFading] = React.useState(false);
-  const { t } = useTranslation();
+const LoginNavMenuItem = ({ navLink, text }) => {
   const navigate = useNavigate();
-
-  const ListItemWithNavigation = React.memo(
-    ({ text, component, event, navToTab, navToScreen }) => {
-      const onClick = () => {
-        if (event) {
-          event();
-        } else {
-          playCursorSound('click');
-
-          if (navToScreen) {
-            navigate(`/${navToScreen}`);
-          }
-          if (navToTab) {
-            setCurrentActiveElement(navToTab);
-            setFading(true);
-          }
-        }
-      };
-
-      return (
-        <div className="">
-          <ListItem
-            isFading={isFading}
-            onAnimationEnd={() => setFading(false)}
-            onClick={onClick}>
-            {component ? component : <p>{textCapitalize(t(text))}</p>}
-          </ListItem>
-        </div>
-      );
-    },
-  );
-
   return (
-    <FadedContainer
-      type={isFading ? 'out' : 'in'}
-      onAnimationEnd={() => setFading(false)}>
-      <AnimatedDiv>
-        {activeTab.content.map((item, index) => {
-          return (
-            <ListItemWithNavigation
-              key={index}
-              text={item.text}
-              event={item.event}
-              navToTab={item?.navToTab}
-              component={item.component}
-            />
-          );
-        })}
-      </AnimatedDiv>
-    </FadedContainer>
+    <ListItem
+      isFading={true}
+      // onAnimationEnd={() => setFading(false)}
+      onClick={() => navigate(navLink)}>
+      {text}
+    </ListItem>
   );
 };
+
+const LoginModal = () => {
+  const { t } = useTranslation();
+  return (
+    <CommonModal
+      headerText={textCapitalize(t('auth.login.login'))}
+      body={<LoginContent />}
+    />
+  );
+};
+
+const RegistrationModal = () => {
+  const { t } = useTranslation();
+  return (
+    <CommonModal
+      headerText={textCapitalize(t('auth.registration.registration'))}
+      body={<RegistrationContent />}
+    />
+  );
+};
+
+export function LoginScreenData() {
+  let routes = [
+    {
+      path: '/',
+      element: <LoginScreenLayout />,
+      children: [
+        { index: true, path: '/login', element: <LoginModal /> },
+        {
+          path: '/registration',
+          element: <RegistrationModal />,
+        },
+        // { path: '*', element: <LoginModal /> },
+      ],
+    },
+  ];
+
+  let flow = useRoutes(routes);
+  return <div>{flow}</div>;
+}
+
+function LoginScreenLayout() {
+  return (
+    <div>
+      <Outlet />
+      <AnimatedDiv>
+        <LoginNavMenuItem navLink={'login'} text={'login'} />
+        <LoginNavMenuItem navLink={'registration'} text={'registration'} />
+      </AnimatedDiv>
+    </div>
+  );
+}

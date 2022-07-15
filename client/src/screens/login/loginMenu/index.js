@@ -1,3 +1,3 @@
-import { LoginMenu } from './LoginMenu';
+import { LoginScreenData } from './LoginMenu';
 
-export default LoginMenu;
+export default LoginScreenData;

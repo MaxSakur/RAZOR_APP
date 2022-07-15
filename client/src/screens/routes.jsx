@@ -1,15 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
 import LoginScreen from './login';
 import MainScreen from './main';
-import { LoginMenu } from './login/loginMenu/LoginMenu';
-import { TopSectionRoutes } from './login/loginRoutes';
+import LoginScreenData from './login/loginMenu';
 import RegisterCharacter from './registerCharacter';
 
 export const useRoutes = (isLogged) => {
   if (!isLogged) {
-    return (
-      <LoginScreen topData={<TopSectionRoutes />} bottomData={<LoginMenu />} />
-    );
+    return <LoginScreen data={<LoginScreenData />} />;
   }
 
   return (
