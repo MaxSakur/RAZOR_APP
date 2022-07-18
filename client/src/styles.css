@@ -5,6 +5,10 @@
   font-family: sans-serif;
 }
 
+.fullHeigth div {
+  min-height: 100%;
+}
+
 :root {
   /* Sizes */
   --cursor_height: 50px;

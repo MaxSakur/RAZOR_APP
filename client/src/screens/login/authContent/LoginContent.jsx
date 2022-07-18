@@ -10,23 +10,26 @@ import {
 import { textCapitalize } from '../../../utils/textCapitalize';
 import { useNavigate } from 'react-router-dom';
 import { playCursorSound } from '../../../utils/moveCursorSound';
-import { testAC } from '../../../reducers/userReducer';
+import { loginAC } from '../../../store/reducers/userReducer';
 
 export const LoginContent = () => {
-  const [email, setEmail] = React.useState('');
   const navigate = useNavigate();
+  const { t } = useTranslation();
+  const dispatch = useDispatch();
+
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  const isLoggedSuccess = useSelector((state) => state);
   const isCharacterRegistered = useSelector(
     (state) => state.character.isCharacterRegistered,
   );
-  const isLoggedSuccess = useSelector((state) => state);
-  const [password, setPassword] = React.useState('');
-  const { t } = useTranslation();
-  const dispatch = useDispatch();
+
   const onActionPress = async () => {
     playCursorSound(true);
     // ???
     // await dispatch(login(email, password));
-    dispatch(testAC());
+    dispatch(loginAC(email, password));
     // Need to add redux thunk
     isLoggedSuccess && navigate(isCharacterRegistered ? '/' : '/');
   };

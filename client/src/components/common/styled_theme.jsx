@@ -1,6 +1,6 @@
 const colors = {
   white: '#fff',
-  disabled: '#ddd',
+  disabled: '#6e6363',
   border_accent_color: '#001534',
   border_accent_color_rgb: '0, 21, 52',
   border_secondary_color: '#4f8bbd',

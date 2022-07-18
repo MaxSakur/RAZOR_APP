@@ -1,6 +1,7 @@
 const SET_USER = 'SET_USER';
 const LOG_OUT = 'LOG_OUT';
 export const TRY = 'TRY';
+export const LOGIN = 'LOGIN';
 
 const defaultState = {
   user: null,
@@ -13,7 +14,7 @@ const userReducer = (state = defaultState, action) => {
       console.log('SET_USER CASE==>', action.payload);
       return {
         ...state,
-        // user: action.payload.user,
+        user: action.payload.user,
         isLogged: true,
       };
     case LOG_OUT:
@@ -32,5 +33,6 @@ const userReducer = (state = defaultState, action) => {
 export const setUserAC = (user) => ({ type: SET_USER, payload: user });
 export const logOutAC = () => ({ type: LOG_OUT });
 export const testAC = () => ({ type: TRY });
+export const loginAC = () => ({ type: LOGIN });
 
 export default userReducer;

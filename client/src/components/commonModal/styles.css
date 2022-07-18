@@ -9,6 +9,10 @@
   position: relative;
 }
 
+.modal div {
+  min-height: auto;
+}
+
 .modal_effects {
   height: 100%;
   width: 100%;

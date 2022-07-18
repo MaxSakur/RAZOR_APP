@@ -6,7 +6,7 @@ import {
   LogOutButton,
   Screen,
 } from '../../components/common/styled_components';
-import { logOutAC } from '../../reducers/userReducer';
+import { logOutAC } from './../../store/reducers/userReducer';
 import { questions } from './questions';
 import BG from './../../assets/images/screens_bg/login_bg-min.jpeg';
 

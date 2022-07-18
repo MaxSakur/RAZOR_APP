@@ -4,7 +4,7 @@ import {
   Screen,
 } from '../../components/common/styled_components';
 import Character from '../../containers/character';
-import { logOutAC } from '../../reducers/userReducer';
+import { logOutAC } from '../../store/reducers/userReducer';
 import BG from './../../assets/images/screens_bg/loading.jpg';
 
 export const MainScreen = () => {

@@ -1,16 +1,22 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
 import api from '../api';
-import { TRY, setUserAC } from './../reducers/userReducer';
-import { Navigate } from 'react-router-dom';
+import { history } from '../store';
+import { LOGIN, setUserAC } from './../store/reducers/userReducer';
 
 // WORKER
 function* fetchUserWorker() {
-  const data = yield call(api.login);
-  yield put(setUserAC(data));
+  const response = yield call(api.login);
+  if (response.status === 200 && response.data.token) {
+    yield put(setUserAC(response.data));
+    localStorage.setItem('user_token', response.data.token);
+    yield call(history.push, '/cart');
+  } else {
+    console.log(response.message);
+  }
   //   yield put(Navigate(data.status === 'OK' ? '/yes' : '/no'));
 }
 
 // WATCHER
 export function* authSaga() {
-  yield takeEvery(TRY, fetchUserWorker);
+  yield takeEvery(LOGIN, fetchUserWorker);
 }

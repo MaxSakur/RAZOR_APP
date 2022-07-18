@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setUserAC } from '../reducers/userReducer';
+// import { setUserAC } from '../store/reducers/userReducer';
 
 const MAIN_URL = 'http://localhost:5000/api';
 
@@ -22,7 +22,7 @@ export const login = (email, password) => {
         password,
       });
 
-      dispatch(setUserAC(response.data));
+      // dispatch(setUserAC(response.data));
       localStorage.setItem('user_token', response.data.token);
     } catch (error) {
       alert(error.response.data.message);
@@ -39,7 +39,7 @@ export const authorize = () => {
         },
       });
 
-      dispatch(setUserAC(response.data.user));
+      // dispatch(setUserAC(response.data.user));
       localStorage.setItem('user_token', response.data.token);
     } catch (e) {
       alert(e.response.data.message);

@@ -32,6 +32,14 @@ export const Screen = styled.div`
   padding: ${constants.paddings.lg}px;
 `;
 
+export const LoginMonitor = styled.div`
+  flex: 3;
+`;
+export const FlexVertical = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Button = styled.button`
   display: flex;
   justify-content: flex-end;
@@ -42,6 +50,10 @@ export const Button = styled.button`
   gap: ${constants.paddings.sm}px;
   align-items: center;
   text-shadow: 2px 2px 2px black;
+  color: ${colors.white};
+  &[disabled] {
+    color: ${colors.disabled};
+  }
   & p {
     padding: ${constants.paddings.sm}px ${constants.paddings.md}px;
     color: ${(props) => (!props.disabled ? colors.white : colors.disabled)};
@@ -102,9 +114,13 @@ export const TopSection = styled.div`
 
 export const AnimatedDiv = styled.div`
   flex-direction: column;
+  padding: 0 20px;
+  display: inline-flex;
+  width: min-content;
   & .animated_menu_item {
     display: flex;
     flex: 0;
+    color: ${colors.white};
     border-left: 2px solid ${colors.border_side_color};
     min-width: 150px;
     background: linear-gradient(
