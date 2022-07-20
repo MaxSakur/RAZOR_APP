@@ -1,5 +1,4 @@
 import React from 'react';
-import { registration } from '../../../actions/userAuth';
 import { useTranslation } from 'react-i18next';
 import { textCapitalize } from '../../../utils/textCapitalize';
 import {
@@ -17,7 +16,8 @@ export const RegistrationContent = () => {
     if (password.length <= 3 || password.length > 12) {
       alert(t('auth.registration.passwordRules'));
     }
-    registration(email, password);
+
+    // dispatch(registration(email, password));
   };
   return (
     <CommonForm>

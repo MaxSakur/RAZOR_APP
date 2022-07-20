@@ -5,7 +5,7 @@ import {
   Screen,
   LoginMonitor,
 } from '../../components/common/styled_components';
-import { textCapitalize } from './../../utils/textCapitalize';
+import { textCapitalize } from '../../utils/textCapitalize';
 import { LoginContent } from '../../screens/login/authContent/LoginContent';
 import { RegistrationContent } from '../../screens/login/authContent/RegistrationContent';
 import CommonModal from '../../components/commonModal';
@@ -56,7 +56,7 @@ export function LoginScreenData() {
   return <div>{flow}</div>;
 }
 
-export const LoginContainer = () => {
+export const LoginScreenContainer = () => {
   return (
     <Screen bg={BG} className="fullHeigth">
       <LoginScreenData />

@@ -1,9 +1,7 @@
 import createSagaMiddleware from 'redux-saga';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { createBrowserHistory } from 'history';
-
 import { rootReducer } from './reducers';
-
 import { rootSaga } from '../saga';
 import { createLogger } from 'redux-logger';
 
