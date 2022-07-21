@@ -7,17 +7,14 @@ import {
   MALE,
 } from '../../store/reducers/characterReduser';
 
-const INITIAL = {
-  name: '',
-  gender: MALE,
-};
-
 export const CharacterInfoContainer = () => {
   const dispatch = useDispatch();
-  const [character, setCharacter] = useState(INITIAL);
+  const [character, setCharacter] = useState({
+    name: '',
+    gender: MALE,
+  });
   const onValueChange = (val) => {
-    console.log(val.currentTarget.value);
-    setCharacter({ name: val.currentTarget.value });
+    setCharacter({ gender: val.currentTarget.value });
     dispatch(changeCharactersGenderAC(val.currentTarget.value));
   };
 
@@ -30,7 +27,7 @@ export const CharacterInfoContainer = () => {
           type="radio"
           value={MALE}
           checked={character.gender === MALE}
-          onChange={(el) => onValueChange(el)}
+          onChange={onValueChange}
         />
       </FlexLabel>
       <FlexLabel>
@@ -39,7 +36,7 @@ export const CharacterInfoContainer = () => {
           type="radio"
           value={FEMALE}
           checked={character.gender === FEMALE}
-          onChange={(el) => onValueChange(el)}
+          onChange={onValueChange}
         />
       </FlexLabel>
     </Flex>

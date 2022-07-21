@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { FEMALE } from '../../store/reducers/characterReduser';
 import { RacePickerContainer, Image } from '../common/styled_components';
 import { images } from './../../assets/images';
 
@@ -9,7 +10,7 @@ export const RacePicker = () => {
   const femaleImages = data.filter((el) => el.name.includes('Female'));
   const manImages = data.filter((el) => !el.name.includes('Female'));
   const checkGender = () =>
-    characterGender === 'male' ? manImages : femaleImages;
+    characterGender === FEMALE ? femaleImages : manImages;
 
   return (
     <RacePickerContainer>
