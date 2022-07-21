@@ -36,13 +36,19 @@ const userReducer = (state = defaultState, action) => {
 
 export const setUserAC = (user) => ({ type: SET_USER, payload: user });
 export const logOutAC = () => ({ type: LOG_OUT });
-export const loginAC = () => ({ type: LOGIN });
+export const loginAC = (email, password) => ({
+  type: LOGIN,
+  payload: {
+    email,
+    password,
+  },
+});
 export const autorizeAC = () => ({ type: AUTHORIZE });
-export const registrationAC = (data) => ({
+export const registrationAC = (email, password) => ({
   type: REGISTRATION,
   payload: {
-    email: data.email,
-    password: data.password,
+    email,
+    password,
   },
 });
 

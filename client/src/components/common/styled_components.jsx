@@ -24,7 +24,7 @@ export const Screen = styled.div`
   box-sizing: border-box;
   height: 100vh;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: ${(props) => (props.spaceBetween ? 'space-between' : '')};
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -63,6 +63,13 @@ export const Button = styled.button`
   }
 `;
 
+export const Flex = styled.div`
+  display: flex;
+`;
+export const FlexLabel = styled.label`
+  display: flex;
+`;
+
 export const FadedContainer = styled.div`
   padding-left: ${constants.cursor_height}px;
   min-width: 280px;
@@ -71,6 +78,13 @@ export const FadedContainer = styled.div`
   align-items: flex-end;
   animation: 0.2s
     ${(props) => (props.type === 'in' ? animationShow : animationHide)};
+`;
+
+export const RacePickerContainer = styled.div`
+  display: flex;
+`;
+export const Image = styled.img`
+  width: calc(100% / ${(props) => props.imageCount});
 `;
 
 export const LogOutButton = styled.button`

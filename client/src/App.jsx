@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 // import { DndProvider } from 'react-dnd';
 // import { HTML5Backend } from 'react-dnd-html5-backend';
-import './styles.css';
-import { LogOutButton } from './components/common/styled_components';
-import { autorizeAC, logOutAC } from './store/reducers/userReducer';
+import { autorizeAC } from './store/reducers/userReducer';
 import LoginScreenContainer from './containers/loginScreenContainer';
+import Game from './containers/gameContainer';
+import './styles.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -19,22 +19,17 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
-  const onActionPress = () => {
-    dispatch(logOutAC());
-  };
-
   return (
     <>
       {isLogged ? (
         <Routes>
+          <Route path="*" index element={<Game />} />
           <Route
-            path="*"
-            index
-            element={<p style={{ color: 'red' }}>Yoooo</p>}
+            path="/welcome"
+            element={<p style={{ color: 'red' }}>WELCOME</p>}
           />
           <Route
-            path="/main"
-            exact
+            path="/character"
             element={<p style={{ color: 'red' }}>MAIN</p>}
           />
         </Routes>
@@ -43,7 +38,6 @@ function App() {
           <Route index path="*" element={<LoginScreenContainer />} />
         </Routes>
       )}
-      <LogOutButton onClick={() => onActionPress()}>OUT</LogOutButton>
     </>
     // <BrowserRouter>
     //   {/* TODO: Move DNDProvider inside screen where it really needed */}

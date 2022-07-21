@@ -6,19 +6,24 @@ import {
   CommonForm,
   Input,
 } from '../../../components/common/styled_components';
+import { registrationAC } from '../../../store/reducers/userReducer';
+import { useDispatch } from 'react-redux';
 
 export const RegistrationContent = () => {
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
+
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [repeatPassword, setRepeatPassword] = React.useState('');
-  const { t } = useTranslation();
+
   const onActionPress = () => {
     if (password.length <= 3 || password.length > 12) {
       alert(t('auth.registration.passwordRules'));
     }
-
-    // dispatch(registration(email, password));
+    dispatch(registrationAC(email, password));
   };
+
   return (
     <CommonForm>
       <Input

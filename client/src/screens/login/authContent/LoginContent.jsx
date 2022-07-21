@@ -14,8 +14,8 @@ export const LoginContent = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [email, setEmail] = React.useState('max.kaliakin@gmail.com');
+  const [password, setPassword] = React.useState('Aerithff7');
 
   const onActionPress = async () => {
     playCursorSound(true);

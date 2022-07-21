@@ -10,7 +10,7 @@
 }
 
 .modal div {
-  min-height: auto;
+  min-height: auto !important;
 }
 
 .modal_effects {

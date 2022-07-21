@@ -58,7 +58,7 @@ export function LoginScreenData() {
 
 export const LoginScreenContainer = () => {
   return (
-    <Screen bg={BG} className="fullHeigth">
+    <Screen bg={BG} className="fullHeigth" spaceBetween>
       <LoginScreenData />
     </Screen>
   );
