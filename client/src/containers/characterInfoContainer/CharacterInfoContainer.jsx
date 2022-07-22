@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Flex, FlexLabel } from '../../components/common/styled_components';
+import { useDispatch, useSelector } from 'react-redux';
+import { images } from '../../assets/images';
+import ListImage from './../../components/listImage';
+import { ListWithLabel } from '../../components/listWithLabel/ListWithLabel';
 import {
   changeCharactersGenderAC,
   FEMALE,
@@ -9,36 +11,34 @@ import {
 
 export const CharacterInfoContainer = () => {
   const dispatch = useDispatch();
-  const [character, setCharacter] = useState({
+  const stateGender = useSelector((state) => state.character.gender);
+  const [, setCharacter] = useState({
     name: '',
     gender: MALE,
   });
   const onValueChange = (val) => {
-    setCharacter({ gender: val.currentTarget.value });
-    dispatch(changeCharactersGenderAC(val.currentTarget.value));
+    setCharacter({ gender: val });
+    dispatch(changeCharactersGenderAC(val));
   };
+  const male = images.gender[0];
+  const female = images.gender[1];
 
   return (
-    <Flex>
-      Choose characters gender:
-      <FlexLabel>
-        <p>{MALE}</p>
-        <input
-          type="radio"
-          value={MALE}
-          checked={character.gender === MALE}
-          onChange={onValueChange}
-        />
-      </FlexLabel>
-      <FlexLabel>
-        <p>{FEMALE}</p>
-        <input
-          type="radio"
-          value={FEMALE}
-          checked={character.gender === FEMALE}
-          onChange={onValueChange}
-        />
-      </FlexLabel>
-    </Flex>
+    <ListWithLabel label={'Gender:'}>
+      <ListImage
+        isActive={stateGender === male.name}
+        onClick={() => onValueChange(MALE)}
+        isIcon
+        src={male.image}
+        alt={male.name}
+      />
+      <ListImage
+        isActive={stateGender === female.name}
+        onClick={() => onValueChange(FEMALE)}
+        isIcon
+        src={female.image}
+        alt={female.name}
+      />
+    </ListWithLabel>
   );
 };

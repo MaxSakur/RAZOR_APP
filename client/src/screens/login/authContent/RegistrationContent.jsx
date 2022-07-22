@@ -8,6 +8,7 @@ import {
 } from '../../../components/common/styled_components';
 import { registrationAC } from '../../../store/reducers/userReducer';
 import { useDispatch } from 'react-redux';
+import { history } from '../../../store';
 
 export const RegistrationContent = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ export const RegistrationContent = () => {
       alert(t('auth.registration.passwordRules'));
     }
     dispatch(registrationAC(email, password));
+    history.push('/');
   };
 
   return (

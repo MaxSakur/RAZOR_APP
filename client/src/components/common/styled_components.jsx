@@ -65,9 +65,19 @@ export const Button = styled.button`
 
 export const Flex = styled.div`
   display: flex;
-`;
-export const FlexLabel = styled.label`
-  display: flex;
+  flex-direction: column;
+  padding: ${constants.paddings.md}px;
+  gap: 8px;
+  & p.label {
+    color: red;
+    font-size: ${fonts.size.xl}px;
+    text-decoration: underline;
+    text-decoration-color: ${colors.border_accent_color};
+  }
+  & div.items {
+    display: flex;
+    gap: 8px;
+  }
 `;
 
 export const FadedContainer = styled.div`
@@ -80,11 +90,44 @@ export const FadedContainer = styled.div`
     ${(props) => (props.type === 'in' ? animationShow : animationHide)};
 `;
 
-export const RacePickerContainer = styled.div`
+export const CardCenterWrapper = styled.div`
+  flex: ${(props) => (props.isIcon ? '1' : '15')};
   display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 `;
-export const Image = styled.img`
-  width: calc(100% / ${(props) => props.imageCount});
+export const CardImage = styled.img`
+  width: ${(props) => (props.icon ? '30px' : '100%')};
+  height: ${(props) => (props.icon ? 'auto' : '100%')};
+  object-fit: cover;
+`;
+export const CardRoleImage = styled.img`
+  height: 100px;
+  border-radius: 100%;
+`;
+export const CardLabel = styled.p`
+  color: ${colors.white};
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  border-bottom: 1px solid ${colors.white};
+  line-height: 2;
+`;
+export const CardImageContainer = styled.div`
+  background-color: ${colors.border_side_color};
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  border-radius: 8px;
+  width: 120px;
+  height: ${(props) => (props.isIcon ? '120px' : '240px')};
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  border: 4px solid ${(props) => (props.isActive ? colors.accepted : 'white')};
 `;
 
 export const LogOutButton = styled.button`

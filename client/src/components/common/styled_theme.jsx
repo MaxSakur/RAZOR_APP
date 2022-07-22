@@ -8,6 +8,7 @@ const colors = {
   border_side_color: '#4bb0e9',
   border_side_color_rgb: '75, 176, 233',
   label_color: '#21aeca',
+  accepted: '#41f241',
 };
 
 const fonts = {

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import ListItem from '../../components/listItem';
+import ListItem from '../listItem';
 
 export const LoginNavMenuItem = ({ navLink, text }) => {
   const navigate = useNavigate();

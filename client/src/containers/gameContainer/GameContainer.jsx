@@ -4,9 +4,9 @@ import { RegisterCharacter } from '../registerCharacter/RegisterCharacter';
 
 export const GameContainer = () => {
   return (
-    <div>
+    <>
       <RegisterCharacter />
       <LogOutButton />
-    </div>
+    </>
   );
 };

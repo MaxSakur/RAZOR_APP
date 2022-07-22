@@ -9,6 +9,7 @@ import {
 import { textCapitalize } from '../../../utils/textCapitalize';
 import { playCursorSound } from '../../../utils/moveCursorSound';
 import { loginAC } from '../../../store/reducers/userReducer';
+import { history } from '../../../store';
 
 export const LoginContent = () => {
   const { t } = useTranslation();
@@ -20,6 +21,7 @@ export const LoginContent = () => {
   const onActionPress = async () => {
     playCursorSound(true);
     dispatch(loginAC(email, password));
+    history.push('/');
   };
 
   const isLoginButtonDisabled = email.length < 1 || password.length < 1;

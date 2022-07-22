@@ -5,16 +5,19 @@ import {
   AUTHORIZE,
   REGISTRATION,
   setUserAC,
+  logOutAC,
 } from './../store/reducers/userReducer';
 
 // WORKERS
 function* autorizeUserWorker() {
   const response = yield call(api.authorize);
+
   if (response.status === 200 && response.data.token) {
     yield put(setUserAC(response.data));
     localStorage.setItem('user_token', response.data.token);
   } else {
-    console.log(response.message);
+    // TODO: Add logic for check token date expiration
+    yield put(logOutAC());
   }
 }
 

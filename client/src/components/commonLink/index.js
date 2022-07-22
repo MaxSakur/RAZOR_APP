@@ -1,3 +1,3 @@
-import { LoginNavMenuItem } from './commonLink';
+import { LoginNavMenuItem } from './CommonLink';
 
 export default LoginNavMenuItem;

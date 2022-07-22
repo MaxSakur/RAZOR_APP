@@ -10,7 +10,7 @@ import './styles.css';
 
 function App() {
   const dispatch = useDispatch();
-  const token = localStorage.getItem('user_token');
+  const token = localStorage.getItem('user_token') || '';
   const isLogged = useSelector((store) => store.user.isLogged);
 
   useEffect(() => {

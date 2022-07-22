@@ -1,3 +1,7 @@
+// GENDER
+import male from './gender/male.png';
+import female from './gender/female.png';
+
 // RACES IMAGES
 import dwarf from './races/dwarf.jpeg';
 import dwarfFemale from './races/dwarf_w.jpeg';
@@ -17,6 +21,10 @@ import templar from './roles/templar.jpeg';
 import warrior from './roles/warrior.jpeg';
 
 export const images = {
+  gender: [
+    { name: 'male', image: male },
+    { name: 'female', image: female },
+  ],
   races: [
     { name: 'dwarf', image: dwarf },
     { name: 'dwarfFemale', image: dwarfFemale },
