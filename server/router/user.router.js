@@ -3,7 +3,7 @@ const User = require('./../models/User');
 const router = new Router();
 const authMiddleware = require('./../middleware/auth.middleware');
 
-router.post('/update', authMiddleware, async (req, res) => {
+router.post('/register', authMiddleware, async (req, res) => {
   try {
     const { registered, role, status } = req.body;
     const user = await User.findOne({ _id: req.user.id });

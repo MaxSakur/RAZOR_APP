@@ -6,6 +6,9 @@
   list-style-type: none;
   font-family: 'Roboto Condensed', sans-serif;
 }
+body {
+  background-color: #000;
+}
 
 .fullHeigth div {
   min-height: 100%;

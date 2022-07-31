@@ -3,6 +3,7 @@ const express = require('express');
 const config = require('config');
 const authRouter = require('./router/auth.router.js');
 const userRouter = require('./router/user.router.js');
+const characterRouter = require('./router/character.router.js');
 const app = express();
 const PORT = config.get('serverPort');
 const DATABASE_URL = config.get('mongoDbUrl');
@@ -12,6 +13,7 @@ app.use(corsMiddleware);
 app.use(express.json());
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
+app.use('/api/character', characterRouter);
 
 const start = async () => {
   try {

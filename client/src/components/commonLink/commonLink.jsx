@@ -1,14 +1,14 @@
 import { useNavigate } from 'react-router-dom';
-import ListItem from '../listItem';
+import Card from '../card';
 
 export const LoginNavMenuItem = ({ navLink, text }) => {
   const navigate = useNavigate();
   return (
-    <ListItem
+    <Card
       isFading={true}
       onAnimationEnd={false}
       onClick={() => navigate(navLink)}>
       {text}
-    </ListItem>
+    </Card>
   );
 };

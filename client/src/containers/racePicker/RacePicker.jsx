@@ -5,8 +5,9 @@ import {
   FEMALE,
 } from '../../store/reducers/characterReduser';
 import ListImage from '../../components/listImage';
-import { ListWithLabel } from '../../components/listWithLabel/ListWithLabel';
+import List from '../../components/list';
 import { images } from '../../assets/images';
+import { CommonContainer } from '../../components/commonContainer/CommonContainer';
 
 export const RacePicker = () => {
   const data = images.races;
@@ -21,18 +22,20 @@ export const RacePicker = () => {
     dispatch(changeCharactersRaceAC(val));
   };
   return (
-    <ListWithLabel label={'Race:'}>
-      {checkGender().map((el) => {
-        return (
-          <ListImage
-            key={el.name}
-            src={el.image}
-            alt={el.name}
-            isActive={stateRace === el.name}
-            onClick={() => onValueChange(el.name)}
-          />
-        );
-      })}
-    </ListWithLabel>
+    <CommonContainer header="Race" disabled={characterGender}>
+      <List>
+        {checkGender().map((el) => {
+          return (
+            <ListImage
+              key={el.name}
+              src={el.image}
+              alt={el.title}
+              isActive={stateRace === el.name}
+              onClick={() => onValueChange(el.name)}
+            />
+          );
+        })}
+      </List>
+    </CommonContainer>
   );
 };

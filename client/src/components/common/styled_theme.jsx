@@ -9,6 +9,7 @@ const colors = {
   border_side_color_rgb: '75, 176, 233',
   label_color: '#21aeca',
   accepted: '#41f241',
+  rebeka: 'rebeccapurple',
 };
 
 const fonts = {
@@ -26,10 +27,13 @@ const constants = {
     xs: 4,
     sm: 8,
     md: 16,
-    lg: 32,
-    xl: 64,
+    lg: 24,
+    xl: 32,
   },
   cursor_height: 50,
+  icon_height: 120,
+  card_height: 240,
+  icon_width: 120,
 };
 
 export { colors, fonts, constants };

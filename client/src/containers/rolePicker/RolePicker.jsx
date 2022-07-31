@@ -2,8 +2,9 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeCharactersRoleAC } from '../../store/reducers/characterReduser';
 import ListImage from '../../components/listImage';
-import { ListWithLabel } from '../../components/listWithLabel/ListWithLabel';
+import List from '../../components/list';
 import { images } from '../../assets/images';
+import { CommonContainer } from '../../components/commonContainer/CommonContainer';
 
 export const RolePicker = () => {
   const data = images.roles;
@@ -13,19 +14,22 @@ export const RolePicker = () => {
     dispatch(changeCharactersRoleAC(val));
   };
   return (
-    <ListWithLabel label={'Role:'}>
-      {data.map((el) => {
-        return (
-          <ListImage
-            key={el.name}
-            src={el.image}
-            alt={el.name}
-            type="role"
-            isActive={stateRole === el.name}
-            onClick={() => onValueChange(el.name)}
-          />
-        );
-      })}
-    </ListWithLabel>
+    <CommonContainer header="Role">
+      <List>
+        {data.map((el) => {
+          return (
+            <ListImage
+              key={el.name}
+              src={el.image}
+              alt={el.name}
+              isIcon
+              type="role"
+              isActive={stateRole === el.name}
+              onClick={() => onValueChange(el.name)}
+            />
+          );
+        })}
+      </List>
+    </CommonContainer>
   );
 };

@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { images } from '../../assets/images';
 import ListImage from './../../components/listImage';
-import { ListWithLabel } from '../../components/listWithLabel/ListWithLabel';
+import List from '../../components/list';
 import {
   changeCharactersGenderAC,
   FEMALE,
   MALE,
 } from '../../store/reducers/characterReduser';
+import { CommonContainer } from '../../components/commonContainer/CommonContainer';
 
 export const CharacterInfoContainer = () => {
   const dispatch = useDispatch();
@@ -24,21 +25,23 @@ export const CharacterInfoContainer = () => {
   const female = images.gender[1];
 
   return (
-    <ListWithLabel label={'Gender:'}>
-      <ListImage
-        isActive={stateGender === male.name}
-        onClick={() => onValueChange(MALE)}
-        isIcon
-        src={male.image}
-        alt={male.name}
-      />
-      <ListImage
-        isActive={stateGender === female.name}
-        onClick={() => onValueChange(FEMALE)}
-        isIcon
-        src={female.image}
-        alt={female.name}
-      />
-    </ListWithLabel>
+    <CommonContainer header="Gender">
+      <List>
+        <ListImage
+          isActive={stateGender === male.name}
+          onClick={() => onValueChange(MALE)}
+          isIcon
+          src={male.image}
+          alt={male.name}
+        />
+        <ListImage
+          isActive={stateGender === female.name}
+          onClick={() => onValueChange(FEMALE)}
+          isIcon
+          src={female.image}
+          alt={female.name}
+        />
+      </List>
+    </CommonContainer>
   );
 };

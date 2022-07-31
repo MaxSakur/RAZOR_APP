@@ -24,14 +24,14 @@ function App() {
       {isLogged ? (
         <Routes>
           <Route path="*" index element={<Game />} />
-          <Route
+          {/* <Route
             path="/welcome"
             element={<p style={{ color: 'red' }}>WELCOME</p>}
           />
           <Route
             path="/character"
             element={<p style={{ color: 'red' }}>MAIN</p>}
-          />
+          /> */}
         </Routes>
       ) : (
         <Routes>
