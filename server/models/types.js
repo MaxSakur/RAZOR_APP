@@ -1,5 +1,7 @@
 const type = {
-  class: ['mage', 'healer', 'warrior'],
+  gender: ['male', 'female'],
+  race: ['dwarf', 'elf', 'ork', 'human'],
+  role: ['cleric', 'mage', 'ranger', 'templar', 'warrior'],
   itemType: [
     'necklace',
     'breastplate',
