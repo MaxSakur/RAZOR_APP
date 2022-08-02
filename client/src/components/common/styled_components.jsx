@@ -79,10 +79,15 @@ export const ContainerBody = styled.div`
   background: transparent;
   position: relative;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  width: 100%;
   font-size: ${fonts.size.lg}px;
   &:before {
     content: '';
-    width: 100%;
+    width: inherit;
     height: 2px;
     margin-left: -${constants.paddings.md}px;
     background: linear-gradient(
@@ -152,6 +157,9 @@ export const ScreenContent = styled.div`
 `;
 export const LoginMonitor = styled.div`
   flex: 3;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 `;
 export const Text = styled.p`
   padding: ${constants.paddings.md}px;
@@ -167,9 +175,8 @@ export const Button = styled.button`
   background-color: ${colors.border_secondary_color};
   text-transform: uppercase;
   text-align: end;
-  margin: ${constants.paddings.md}px;
   padding: ${constants.paddings.md}px;
-  align-items: center;
+  justify-content: center;
   text-shadow: 2px 2px 2px black;
   color: ${colors.white};
   &[disabled] {

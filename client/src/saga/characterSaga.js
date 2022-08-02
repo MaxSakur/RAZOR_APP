@@ -9,7 +9,7 @@ import {
 function* updateCharacterWorker(action) {
   const response = yield call(api.characterRegistration, action.payload);
   if (response.status === 200) {
-    yield put(registerCharacterAC());
+    yield put(registerCharacterAC(response.data.isCharacterRegistered));
   } else {
     console.warn('updateCharacterWorker error', response);
   }

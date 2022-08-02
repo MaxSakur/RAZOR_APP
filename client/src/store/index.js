@@ -8,7 +8,6 @@ import { createLogger } from 'redux-logger';
 // Store
 const middleware = (store) => (next) => (action) => {
   next(action);
-  console.log(store, action);
 };
 
 export const history = createBrowserHistory();

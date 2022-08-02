@@ -22,7 +22,6 @@ export const RolePicker = () => {
               key={el.name}
               src={el.image}
               alt={el.name}
-              isIcon
               type="role"
               isActive={stateRole === el.name}
               onClick={() => onValueChange(el.name)}

@@ -40,9 +40,9 @@ const characterReducer = (state = defaultState, action) => {
   }
 };
 
-export const registerCharacterAC = () => ({
+export const registerCharacterAC = (isCharacterRegistered) => ({
   type: REGISTER_CHARACTER,
-  payload: { isCharacterRegistered: true },
+  payload: { isCharacterRegistered },
 });
 export const changeCharactersGenderAC = (gender) => ({
   type: CHANGE_CHARACTER_GENDER,

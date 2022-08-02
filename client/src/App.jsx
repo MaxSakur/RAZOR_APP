@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 // import { HTML5Backend } from 'react-dnd-html5-backend';
 import { autorizeAC } from './store/reducers/userReducer';
 import LoginScreenContainer from './containers/loginScreenContainer';
-import Game from './containers/gameContainer';
+import Lobby from './containers/lobbyContainer';
 import './styles.css';
 
 function App() {
@@ -23,15 +23,7 @@ function App() {
     <>
       {isLogged ? (
         <Routes>
-          <Route path="*" index element={<Game />} />
-          {/* <Route
-            path="/welcome"
-            element={<p style={{ color: 'red' }}>WELCOME</p>}
-          />
-          <Route
-            path="/character"
-            element={<p style={{ color: 'red' }}>MAIN</p>}
-          /> */}
+          <Route path="*" index element={<Lobby />} />
         </Routes>
       ) : (
         <Routes>

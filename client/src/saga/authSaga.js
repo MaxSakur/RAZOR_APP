@@ -11,7 +11,6 @@ import {
 // WORKERS
 function* autorizeUserWorker() {
   const response = yield call(api.authorize);
-
   if (response.status === 200 && response.data.token) {
     yield put(setUserAC(response.data));
     localStorage.setItem('user_token', response.data.token);
@@ -33,7 +32,6 @@ function* loginUserWorker(action) {
 
 function* registerUserWorker(action) {
   const response = yield call(api.registration, action.payload);
-  console.log(response);
   if (response.status === 200) {
     const loginResponse = yield call(api.login, action.payload);
     yield put(setUserAC(loginResponse.data));
