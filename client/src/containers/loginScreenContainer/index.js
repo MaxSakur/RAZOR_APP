@@ -1,3 +1,3 @@
-import { LoginScreenContainer } from './LoginScreenContainer';
+import { LoginScreenContainer } from "./LoginScreenContainer";
 
 export default LoginScreenContainer;
